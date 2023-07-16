@@ -14,6 +14,18 @@ class QuestionModelTests(TestCase):
         future_question = Question(question_text="¿Con quién te gustaría ir a tu destino favorito?", pub_date=time)
         self.assertIs(future_question.was_published_recently(), False)
 
+    def test_was_published_recently_with_past_questions(self):
+        """was_published_recently returns False for questions whose pub_date is in the past"""
+        time = timezone.now() - datetime.timedelta(days=32)
+        """import pdb; pdb.set_trace()"""
+        past_question = Question(question_text="¿Con quién te gustaría ir a tu destino favorito?", pub_date=time)
+        self.assertIs(past_question.was_published_recently(), False)
+
+    def test_was_published_recently_with_present_questions(self):
+        """was_published_recently returns False for questions whose pub_date is in the present"""
+        time = timezone.now() - datetime.timedelta(hours=1)
+        present_question = Question(question_text="¿Con quién te gustaría ir a tu destino favorito?", pub_date=time)
+        self.assertIs(present_question.was_published_recently(), True)
 
 def create_question(question_text, days):
     """
