@@ -6,6 +6,7 @@ from django.views import generic
 from django.utils import timezone
 
 from .models import Question, Choice
+from django.db.models import Count
 
 # def index(request):
 #     latest_question_list = Question.objects.all()
@@ -32,8 +33,11 @@ class IndexView(generic.ListView):
     context_object_name = "latest_question_list"
 
     def get_queryset(self):
-        """Return the last five published questions"""
-        return Question.objects.filter(pub_date__lte=timezone.now()).order_by("-pub_date")[:5]
+        """Return the last five published questions, that have at least two choices"""
+        question = Question.objects.filter(pub_date__lte=timezone.now())
+        question = question.alias(entries=Count("choice")).filter(entries__gte=2)
+        return question.order_by("-pub_date")[:5]
+    
 
 class DetailView(generic.DetailView):
     model = Question
@@ -41,7 +45,7 @@ class DetailView(generic.DetailView):
 
     def get_queryset(self):
         """
-        Excludes any questions that arent published yet
+        Excludes any questions that aren't published yet
         """
 
         return Question.objects.filter(pub_date__lte=timezone.now())
@@ -49,6 +53,9 @@ class DetailView(generic.DetailView):
 class ResultView(generic.DetailView):
     model = Question
     template_name = "polls/results.html"
+
+    def get_queryset(self):
+        return Question.objects.filter(pub_date__lte=timezone.now()) 
 
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)

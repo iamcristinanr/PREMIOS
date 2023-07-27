@@ -1,7 +1,19 @@
-li a {
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100vh;
+    background: rgb(180, 93, 137);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+/*<!--li a {
     color:palevioletred;
 }
 
 body{
     background: blanchedalmond url("images/giphy.gif") no-repeat;
-}
+}*/
