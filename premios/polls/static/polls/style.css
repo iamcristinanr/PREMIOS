@@ -1,15 +1,77 @@
+header{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+
+    padding: 50px;
+    padding-top: 75px;
+
+    height: 60px;
+    font-size: 72px;
+    color: rgb(21, 83, 19);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+
+
+}
+
 body{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+
+    height: 100vh;
+    background: #cce7ad url("images/cartel.jfif") no-repeat;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    flex-direction: column;
+}
+
+ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+/*header,ul {
+    background: linear-gradient( to right, hsl 98 100% 62%, hsl (204 100% 59%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align:center; 
+}*/
+
+li {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    height: 100vh;
-    background: rgb(180, 93, 137);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 500px;
+
+    border: 1px solid white;
+    padding: 10%;
+    margin-bottom: 20px;
+
+    font-size: 28px;
+
 }
 
+a{
+    color: white;
+    text-decoration: none;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 100vw;
+    padding: 50px 0;
 
 
+
+}
 /*<!--li a {
     color:palevioletred;
 }
