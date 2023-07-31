@@ -1,7 +1,25 @@
-<h1>{{question.question_text}}</h1>
-<ul>
-{% for choice in question.choice_set.all  %}
-    <li>{{choice.choice_text}} lleva un total de: {{choice.votes}} voto{{choice.votes|pluralize}}</li>
-{% endfor %}
-</ul>
-<a href="{% url 'polls:detail' question.id %}  ">¿Te gustaría votar de nuevo?</a>
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'polls/result.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{question.question_text}}</h1>
+        <ul> {% for choice in question.choice_set.all  %}
+               <li>{{choice.choice_text}} lleva un total de: {{choice.votes}} voto{{choice.votes|pluralize}}
+               </li>
+               {% endfor %}
+        </ul>
+    <a href="{% url 'polls:detail' question.id %}  ">¿Te gustaría votar de nuevo?</a>
+    
+</body>
+</html>
+
+
+

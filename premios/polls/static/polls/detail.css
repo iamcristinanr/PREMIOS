@@ -1,0 +1,38 @@
+
+body{
+    display: flex;
+    align-items: center;
+    background:  #bee493;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    flex-direction: column;
+}
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+    flex-direction: column;
+}
+
+fieldset{
+    justify-content: center;
+    margin-top: 20px;
+}
+
+input[type="submit"]{
+
+    flex-direction: column;
+    align-items: center;
+    width: 10%;
+    height: 40px;
+    margin-top: 20px;
+    -webkit-text-fill-color: white;
+    border: 1px solid white;
+    font-size: 30px;
+    background-color: rgb(21, 83, 19);
+}
+
