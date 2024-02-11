@@ -9,7 +9,7 @@
 Install Django\
 `pip install django` \
 Start proyect\
-`django-admin startproject premios` \
+`django-admin startproject premios` 
 
 ## Crear un entorno virtual
 
@@ -40,7 +40,7 @@ Inside main folder: "premios", there are two folder "premios" y "polls"
 The main project is a container for different applications, so each application has its `urls.py` file.
 The file that is contained in the main project folder has to include the files of the other applications
 
-**File`urls.py` proyect folder:**
+**File *urls.py* proyect folder:**
 ```py
 from django.contrib import admin
 from django.urls import path, include
@@ -85,7 +85,7 @@ class Choice(models.Model):
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
 ```
-### Every time you make a change you must dor migration
+### Every time you make a change you must do migration
 
 In the console (we have to have the virtual environment active and be located in the parent folder)
 ```zsh
