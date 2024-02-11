@@ -29,7 +29,7 @@ source ./venv/bin/activate
 
 - `urls.py`: Where the addresses with which we can move through the project are worked, such as the admin or user route.
 
-## Premios Platzi App
+# Premios Platzi App
 
 Create a app called "polls"
 ```zsh
@@ -110,7 +110,17 @@ The databases are made up of tables and each table obtains the data related to e
 
 The tables correspond to models (which are expressed as classes), the columns will correspond to attributes of those classes and the data types of each column will correspond to classes linked to the attributes of the objects.
 
-## Administrator
+## Views
+>DRY: Don´t Repeat Yourself
+
+A model is always created that is displayed in a template that in turn appears in a view (in this project we have the Question and Choice models) 
+
+- Index view: Show all questions
+- Detail view: Show the question with the answers
+- Vote view: Count the vouts
+- results view: Show the vote for each options
+
+### Administrator
 
 To start using the administrator you must create a username and password:
 `python3 manage.py createsuperuser`
@@ -126,12 +136,8 @@ admin.site.register(Question)
 
 Using the address http://127.0.0.1:8000/admin/ You can enter the administration panel.
 
-## Views
 
-A model is always created that is displayed in a template that in turn appears in a view (in this project we have the Question and Choice models)
-- Vote view: Count the vouts
-- results view: Show the vote for each options
-- 
-## Formularios
+  
+### Formularios
 
 `{% csrf_token %}`: This tag adds a security token to prevent form hacking attacks
